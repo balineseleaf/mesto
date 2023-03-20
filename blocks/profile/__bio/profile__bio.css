@@ -1,0 +1,5 @@
+.profile__bio {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

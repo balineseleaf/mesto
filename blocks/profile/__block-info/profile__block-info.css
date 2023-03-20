@@ -1,0 +1,14 @@
+.profile__block-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 17px 0 0;
+  align-self: center;
+}
+
+@media screen and (max-width: 579px) {
+  .profile__block-info {
+    padding: 0;
+    max-width: 189px;
+  }
+}

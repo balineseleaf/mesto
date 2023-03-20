@@ -1,0 +1,26 @@
+.popup__close {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 767px) {
+  .popup__close {
+    width: 30.7px;
+    height: 30.7px;
+  }
+}
+
+@media screen and (max-width: 424px) {
+  .popup__close {
+    right: 0;
+  }
+}
+
+/* @media screen and (max-height: 450px) {
+  .popup__close {
+    top: 0;
+    right: -50px;
+  }
+} */
