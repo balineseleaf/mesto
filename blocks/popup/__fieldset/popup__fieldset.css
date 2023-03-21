@@ -1,6 +1,7 @@
-.popup__fieldset{
+.popup__fieldset {
   padding: 0;
   margin: 0;
   border: none;
   text-align: center;
+  box-sizing: border-box;
 }

@@ -1,6 +1,6 @@
 .popup__input {
   margin: 17px 0 0 0;
-  padding: 13px 5px 13px 5px;
+  padding: 13px 0 13px 0;
   width: 348px;
   height: 14px;
   border: none;
@@ -16,14 +16,8 @@
 
 
 
-@media screen and (max-width: 767px) {
-  .form__input {
-    width: 190px;
-  }
-}
-
-@media screen and (max-height: 440px) {
-  .form__input {
-    margin-top: 0;
+@media screen and (max-width: 1100px) {
+  .popup__input {
+    width: 238px;
   }
 }
