@@ -6,9 +6,8 @@
   cursor: pointer;
   width: 24px;
   height: 24px;
-  border-radius: 2px;
   background-color: #000000;
-  background-image: url(../../../images/editbutton.png);
+  background-image: url(../../../images/edit-button.svg);
   border: 1px solid #FFFFFF;
   background-position: center;
   background-repeat: no-repeat;
@@ -18,7 +17,6 @@
 }
 
 .profile__edit-button:hover {
-  border: 2px solid #FFFFFF;
   opacity: 0.6;
 }
 

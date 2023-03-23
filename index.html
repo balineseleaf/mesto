@@ -9,7 +9,7 @@
 
   <body class="page">
     <header class="header">
-      <img class="header__logo" src="images/logo.png" alt="Логотип страницы" />
+      <img class="header__logo" src="images/logo.svg" alt="Логотип страницы" />
     </header>
 
     <main class="content">
@@ -25,111 +25,99 @@
           <div class="profile__bio">
             <div class="profile__block-info">
               <h1 class="profile__name">Жак-Ив Кусто</h1>
-              <div role="button" class="profile__edit-button"></div>
+              <button type="button" class="profile__edit-button"></button>
             </div>
             <p class="profile__description">Исследователь океана</p>
           </div>
         </div>
-        <div role="button" class="profile__add-button"></div>
+        <button type="button" class="profile__add-button"></button>
       </section>
 
       <section class="elements">
         <div class="element">
-          <div class="element__block">
-            <img
-              class="element__image"
-              src="images/image1.png"
-              alt="Фотография природы"
-            />
-            <div class="element__caption-block">
-              <p class="element__caption">Карачаевск</p>
-              <img
-                class="element__icon-like element__icon-like_active"
-                src="images/icon-like.png"
-                alt="сердечко"
-              />
-            </div>
+          <img
+            class="element__image"
+            src="images/image1.png"
+            alt="Фотография природы"
+          />
+          <div class="element__caption-block">
+            <h2 class="element__caption">Карачаевск</h2>
+            <button
+              type="button"
+              class="element__icon-like element__icon-like_active"
+              alt="сердечко"
+            ></button>
           </div>
         </div>
         <div class="element">
-          <div class="element__block">
-            <img
-              class="element__image"
-              src="images/tesla1.png"
-              alt="Фотография Теслы"
-            />
-            <div class="element__caption-block">
-              <p class="element__caption">Моя Тесла</p>
-              <img
-                class="element__icon-like element__icon-like_active"
-                src="images/icon-like.png"
-                alt="сердечко"
-              />
-            </div>
+          <img
+            class="element__image"
+            src="images/tesla1.png"
+            alt="Фотография Теслы"
+          />
+          <div class="element__caption-block">
+            <h2 class="element__caption">Моя Тесла</h2>
+            <button
+              type="button"
+              class="element__icon-like element__icon-like_active"
+              alt="сердечко"
+            ></button>
           </div>
         </div>
         <div class="element">
-          <div class="element__block">
-            <img
-              class="element__image"
-              src="images/image2.png"
-              alt="Фотография природы"
-            />
-            <div class="element__caption-block">
-              <p class="element__caption">Гора Эльбрус</p>
-              <img
-                class="element__icon-like element__icon-like_active"
-                src="images/icon-like.png"
-                alt="сердечко"
-              />
-            </div>
+          <img
+            class="element__image"
+            src="images/image2.png"
+            alt="Фотография природы"
+          />
+          <div class="element__caption-block">
+            <h2 class="element__caption">Гора Эльбрус</h2>
+            <button
+              type="button"
+              class="element__icon-like element__icon-like_active"
+              alt="сердечко"
+            ></button>
           </div>
         </div>
         <div class="element">
-          <div class="element__block">
-            <img
-              class="element__image"
-              src="images/image3.png"
-              alt="Фотография природы"
-            />
-            <div class="element__caption-block">
-              <p class="element__caption">Домбай</p>
-              <img
-                class="element__icon-like element__icon-like_active"
-                src="images/icon-like.png"
-                alt="сердечко"
-              />
-            </div>
+          <img
+            class="element__image"
+            src="images/image3.png"
+            alt="Фотография природы"
+          />
+          <div class="element__caption-block">
+            <h2 class="element__caption">Домбай</h2>
+            <button
+              type="button"
+              class="element__icon-like element__icon-like_active"
+              alt="сердечко"
+            ></button>
           </div>
         </div>
         <div class="element">
-          <div class="element__block">
-            <img
-              class="element__image"
-              src="images/yoga.jpg"
-              alt="Женщина на йоге"
-            />
-            <div class="element__caption-block">
-              <p class="element__caption">Йога</p>
-              <img
-                class="element__icon-like element__icon-like_active"
-                src="images/icon-like.png"
-                alt="сердечко"
-              />
-            </div>
+          <img
+            class="element__image"
+            src="images/yoga.jpg"
+            alt="Женщина на йоге"
+          />
+          <div class="element__caption-block">
+            <h2 class="element__caption">Йога</h2>
+            <button
+              type="button"
+              class="element__icon-like element__icon-like_active"
+              alt="сердечко"
+            ></button>
           </div>
         </div>
         <div class="element">
-          <div class="element__block">
-            <img class="element__image" src="images/sunset.png" alt="Закат" />
-            <div class="element__caption-block">
-              <p class="element__caption">Закат</p>
-              <img
-                class="element__icon-like element__icon-like_active"
-                src="images/icon-like.png"
-                alt="сердечко"
-              />
-            </div>
+          <img class="element__image" src="images/sunset.png" alt="Закат" />
+          <div class="element__caption-block">
+            <h2 class="element__caption">Закат</h2>
+            <button
+              type="button"
+              class="element__icon-like element__icon-like_active"
+              alt="сердечко"
+            ></button>
           </div>
         </div>
       </section>
@@ -139,10 +127,10 @@
       <p class="footer__copyright">&copy;&nbsp;2023 Mesto Russia</p>
     </footer>
 
-    <section class="popup popup_type_edit-profile">
+    <section class="popup">
       <div class="popup__container">
-        <form class="popup__form">
-          <h3 class="popup__header">Редактировать профиль</h3>
+        <form name="form-edit-profile" class="popup__form">
+          <h2 class="popup__header">Редактировать профиль</h2>
           <fieldset class="popup__fieldset">
             <input
               class="popup__input popup__input_type_name"
@@ -154,19 +142,10 @@
               name="description"
               placeholder="Введите вашу профессию"
             />
-            <button type="submit" class="popup__submit">
-              <span class="popup__submit-text">Сохранить</span>
-            </button>
-
-            <div role="button" class="popup__close">
-              <img
-                class="popup__close-image"
-                src="images/closeIcon.png"
-                alt="иконка крестика"
-              />
-            </div>
+            <button type="submit" class="popup__submit">Сохранить</button>
           </fieldset>
         </form>
+        <button type="button" class="popup__close"></button>
       </div>
     </section>
 

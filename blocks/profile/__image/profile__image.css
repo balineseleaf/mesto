@@ -5,9 +5,3 @@
   align-self: center;
   height: 120px;
 }
-
-@media screen and (max-width: 579px) {
-  .profile__image {
-    font-size: 14px;
-  }
-}

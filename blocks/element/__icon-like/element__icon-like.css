@@ -2,4 +2,8 @@
   width: 22px;
   height: 19px;
   padding-right: 30px;
+  background-image: url(../../../images/iconlike.svg);
+  background-repeat: no-repeat;
+  border: none;
+  background-color: white;
 }

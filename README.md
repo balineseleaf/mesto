@@ -5,7 +5,7 @@
 - Интро
 - Figma
 - Технологии
-- Github Pages
+- Github Page
 
 **Intro**
 
@@ -20,5 +20,9 @@
 **Технологии**
 
 Используемые технологии: HTML5, CSS3, JS, БЭМ, Адаптивная верстка с применением flex, grid, media queries.
+
+**Github Page**
+
+https://balineseleaf.github.io/mesto/
 
 Удачи!
