@@ -10,19 +10,19 @@
   background-color: transparent;
   border: none;
   background-position: center;
-  transition: opacity .4s ease;
+  transition: opacity .3s ease;
 }
 
 .popup__close:hover{
   opacity: 0.6;
 }
 
-@media screen and (max-width: 1100px) {
+ @media screen and (max-width: 1100px) {
   .popup__close {
-    width: 30.7px;
-    height: 30.7px;
+    width: 20px;
+    height: 20px;
   }
-}
+} 
 
 @media screen and (max-width: 424px) {
   .popup__close {
