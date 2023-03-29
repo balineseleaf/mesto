@@ -8,6 +8,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  max-width: 335px;
 }
 
 
@@ -15,7 +16,6 @@
   .profile__name {
     font-size: 27px;
     line-height: 1.22;
-    margin-left: -49px;
-    margin-right: 16px;
+    margin-right: 12px;
   }
 }
