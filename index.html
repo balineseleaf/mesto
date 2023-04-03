@@ -32,71 +32,21 @@
       </section>
 
       <section class="elements">
-        <div class="element">
-          <img
-            class="element__image"
-            src="images/image1.png"
-            alt="Фотография природы"
-          />
-          <div class="element__caption-block">
-            <h2 class="element__caption">Карачаевск</h2>
-            <button type="button" class="element__icon-like"></button>
+        <template id="card">
+          <div class="element">
+            <button type="button" class="element__delete-card-button"></button>
+            <img
+              src="images/image1.png"
+              alt="Фотография природы"
+              class="element__image"
+              role="button"
+            />
+            <div class="element__caption-block">
+              <h2 class="element__caption">Опасный зверь</h2>
+              <button type="button" class="element__icon-like"></button>
+            </div>
           </div>
-        </div>
-        <div class="element">
-          <img
-            class="element__image"
-            src="images/tesla1.png"
-            alt="Фотография Теслы"
-          />
-          <div class="element__caption-block">
-            <h2 class="element__caption">Моя Тесла</h2>
-            <button type="button" class="element__icon-like"></button>
-          </div>
-        </div>
-        <div class="element">
-          <img
-            class="element__image"
-            src="images/image2.png"
-            alt="Фотография природы"
-          />
-          <div class="element__caption-block">
-            <h2 class="element__caption">Гора Эльбрус</h2>
-            <button type="button" class="element__icon-like"></button>
-          </div>
-        </div>
-        <div class="element">
-          <img
-            class="element__image"
-            src="images/image3.png"
-            alt="Фотография природы"
-          />
-          <div class="element__caption-block">
-            <h2 class="element__caption">Домбай</h2>
-            <button type="button" class="element__icon-like"></button>
-          </div>
-        </div>
-        <div class="element">
-          <img
-            class="element__image"
-            src="images/yoga.jpg"
-            alt="Женщина на йоге"
-          />
-          <div class="element__caption-block">
-            <h2 class="element__caption">Йога</h2>
-            <button
-              type="button"
-              class="element__icon-like element__icon-like_active"
-            ></button>
-          </div>
-        </div>
-        <div class="element">
-          <img class="element__image" src="images/sunset.png" alt="Закат" />
-          <div class="element__caption-block">
-            <h2 class="element__caption">Закат</h2>
-            <button type="button" class="element__icon-like"></button>
-          </div>
-        </div>
+        </template>
       </section>
     </main>
 
@@ -104,7 +54,7 @@
       <p class="footer__copyright">&copy;&nbsp;2023 Mesto Russia</p>
     </footer>
 
-    <section class="popup">
+    <section class="popup editProfilePopup">
       <div class="popup__container">
         <h2 class="popup__header">Редактировать профиль</h2>
         <form name="form-edit-profile" class="popup__form">
@@ -122,6 +72,40 @@
             <button type="submit" class="popup__submit">Сохранить</button>
           </fieldset>
         </form>
+        <button type="button" class="popup__close"></button>
+      </div>
+    </section>
+
+    <section class="popup addImagePopup">
+      <div class="popup__container">
+        <h2 class="popup__header">Новое место</h2>
+        <form name="form-edit-profile" class="popup__form">
+          <fieldset class="popup__fieldset">
+            <input
+              class="popup__input popup__input_type_name"
+              name="name"
+              placeholder="Название"
+            />
+            <input
+              class="popup__input popup__input_type_photo-link"
+              name="place"
+              placeholder="Ссылка на картинку"
+            />
+            <button type="submit" class="popup__submit">Создать</button>
+          </fieldset>
+        </form>
+        <button type="button" class="popup__close"></button>
+      </div>
+    </section>
+
+    <section class="popup cardPopup">
+      <div class="popup__image-container">
+        <img
+          src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg"
+          alt="Горы Алтая"
+          class="popup__image"
+        />
+        <p class="popup__image-text">Горный Алтай</p>
         <button type="button" class="popup__close"></button>
       </div>
     </section>
