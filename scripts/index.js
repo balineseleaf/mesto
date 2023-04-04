@@ -21,6 +21,7 @@ const cardClosePopupButton = cardPopup.querySelector('.popup__close');
 const image = cardPopup.querySelector('.popup__image');
 const text = cardPopup.querySelector('.popup__image-text');
 const linkImageInput = cardAddForm.querySelector('.popup__input_type_photo-link');
+const linkImageInputDescription = cardAddForm.querySelector('.popup__input_type_photo-link-name');
 
 const initialCards = [
   {
@@ -49,16 +50,19 @@ const initialCards = [
   }
 ];
 
+
+//edit profile popup
 buttonEditProfile.addEventListener('click', () => {
   openPopup(profileEditPopup);
-
   nameInput.value = profileName.textContent;
   descriptionInput.value = profileDescription.textContent;
 });
 
+
 profileEditPopupCloseButton.addEventListener('click', () => {
   closePopup(profileEditPopup);
 });
+
 
 popupSubmitForm.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -71,18 +75,19 @@ popupSubmitButton.addEventListener('click', () => {
 });
 
 
+// create element with <template> and js
 const createCardElement = (cardData) => {
   const cardElement = cardTemplate.content.querySelector('.element').cloneNode(true);
   const cardName = cardElement.querySelector('.element__caption');
   const cardImage = cardElement.querySelector('.element__image');
+  const deleteButton = cardElement.querySelector('.element__delete-card-button');
+  const likeButton = cardElement.querySelector('.element__icon-like');
 
   cardName.textContent = cardData.name;
   cardImage.src = cardData.link;
   cardImage.alt = cardData.name;
 
-  const deleteButton = cardElement.querySelector('.element__delete-card-button');
-  const likeButton = cardElement.querySelector('.element__icon-like');
-
+  // handle delete and icon-like buttons
   const handleDelete = () => {
     cardElement.remove();
   }
@@ -94,7 +99,7 @@ const createCardElement = (cardData) => {
   deleteButton.addEventListener('click', handleDelete);
   likeButton.addEventListener('click', handleLike);
 
-
+// big image popup after click
   cardImage.addEventListener('click', () => {
     image.src = cardData.link;
     text.textContent = cardData.name;
@@ -108,15 +113,17 @@ const createCardElement = (cardData) => {
     return cardElement;
   };
 
+//insert an element before the closing tag section .elements
 const renderCardElement = (cardElement) => {
   cardGrid.prepend(cardElement);
 }
-
+// get elements from array
 initialCards.forEach((card) => {
   const element = createCardElement(card);
   renderCardElement(element);
 });
 
+// functions for opening and closing popups
 const openPopup = (popup) => {
   popup.classList.add('popup_opened');
 }
@@ -125,19 +132,24 @@ const closePopup = (popup) => {
   popup.classList.remove('popup_opened');
 }
 
+
+// open  popup by using ButtonAddCard
 cardAddButton.addEventListener('click', () => {
   openPopup(cardAddPopup);
 });
 
+// close addImagePopup
 const closeAddImagePopup = () => {
   closePopup(cardAddPopup);
 };
 
+// close addcard popup form 
 cardAddPopupCloseButton.addEventListener('click', closeAddImagePopup);
 
+//form for creating new cards
 const handleAddCardSubmit = (event) => {
   event.preventDefault();
-  const name = nameInput.value;
+  const name = linkImageInputDescription.value;
   const link = linkImageInput.value; 
   const cardData = {
     name,
@@ -147,7 +159,7 @@ const handleAddCardSubmit = (event) => {
   renderCardElement(createCardElement(cardData));
   closeAddImagePopup();
 };
-
+// submit form
 cardAddForm.addEventListener('submit', handleAddCardSubmit);
 
 
