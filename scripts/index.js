@@ -20,8 +20,8 @@ const cardClosePopupButton = cardPopup.querySelector('.popup__close');
 
 const image = cardPopup.querySelector('.popup__image');
 const text = cardPopup.querySelector('.popup__image-text');
-const linkImageInput = cardAddForm.querySelector('.popup__input_type_photo-link');
-const linkImageInputDescription = cardAddForm.querySelector('.popup__input_type_photo-link-name');
+const imageInputLink = cardAddForm.querySelector('.popup__input_type_photo-link');
+const imageInputDescription = cardAddForm.querySelector('.popup__input_type_photo-link-name');
 
 const initialCards = [
   {
@@ -149,12 +149,20 @@ cardAddPopupCloseButton.addEventListener('click', closeAddImagePopup);
 //form for creating new cards
 const handleAddCardSubmit = (event) => {
   event.preventDefault();
-  const name = linkImageInputDescription.value;
-  const link = linkImageInput.value; 
+
+
+  let name = imageInputDescription.value;
+
+  if (name == '') {
+    name = 'Красивое изображение';
+  }
+
+  const link = imageInputLink.value; 
   const cardData = {
     name,
     link,
   }
+
 
   renderCardElement(createCardElement(cardData));
   closeAddImagePopup();
