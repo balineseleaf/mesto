@@ -1,7 +1,3 @@
-//import { initialCards } from "./constants.js";
-// console.log(initialCards);
-
-
 const buttonEditProfile = document.querySelector('.profile__edit-button');
 const profileEditPopup = document.querySelector('.popup_type_edit-profile');
 const profileEditPopupCloseButton = profileEditPopup.querySelector('.popup__close');
@@ -12,7 +8,6 @@ const popupSubmitButton = document.querySelectorAll('.popup__submit');
 const popupSubmitButtonAddCArd = document.querySelector('.popup__submitAddCard');
 const profileName = document.querySelector('.profile__name');
 const profileDescription = document.querySelector('.profile__description');
-
 const cardTemplate = document.getElementById('card');
 const cardGrid = document.querySelector('.elements');
 const cardAddButton = document.querySelector('.profile__add-button');
@@ -21,38 +16,10 @@ const cardAddForm = cardAddPopup.querySelector('.popup__form');
 const cardAddPopupCloseButton = cardAddPopup.querySelector('.popup__close');
 const cardPopup = document.querySelector('.popup_type_picture');
 const cardClosePopupButton = cardPopup.querySelector('.popup__close');
-
 const image = cardPopup.querySelector('.popup__image');
 const text = cardPopup.querySelector('.popup__image-text');
 const imageInputLink = cardAddForm.querySelector('.popup__input_type_photo-link');
 const imageInputDescription = cardAddForm.querySelector('.popup__input_type_photo-link-name');
-
-const initialCards = [
-  {
-    name: 'Песок',
-    link: 'https://images.unsplash.com/photo-1680030062888-e691d5992056?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'
-  },
-  {
-    name: 'Солнечный день',
-    link: 'https://images.unsplash.com/photo-1679612423220-2e98a243d172?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'
-  },
-  {
-    name: 'Берег',
-    link: 'https://images.unsplash.com/photo-1679421077038-b3e7ecfacfc1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'
-  },
-  {
-    name: 'Дюны',
-    link: 'https://images.unsplash.com/photo-1680176750034-8d11a2f71096?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80'
-  },
-  {
-    name: 'Южный пляж',
-    link: 'https://images.unsplash.com/photo-1679612423147-bc5246818202?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80'
-  },
-  {
-    name: 'Жена',
-    link: 'https://images.unsplash.com/photo-1679612423146-8c4babd5d25f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'
-  }
-];
 
 //edit profile popup
 buttonEditProfile.addEventListener('click', function() {
@@ -164,6 +131,7 @@ const closePopup = (popup) => {
 cardAddButton.addEventListener('click', () => {
   imageInputLink.value = '';
   imageInputDescription.value = '';
+  disableButton(popupSubmitButtonAddCArd);
   openPopup(cardAddPopup);
 });
 
@@ -191,7 +159,6 @@ const handleAddCardSubmit = (event) => {
     link,
   }
 
-  disableButton(popupSubmitButtonAddCArd);
   renderCardElement(createCardElement(cardData));
   closeAddImagePopup();
 };
