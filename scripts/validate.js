@@ -1,3 +1,14 @@
+// export { popupSubmitButton } from "./index.js";
+
+// const hasInvalidInput = (inputList) => {
+//   return inputList.some((input) => {
+//     // Если поле не валидно, колбэк вернёт true
+//     // Обход массива прекратится и вся функция
+//     // hasInvalidInput вернёт true
+//     return !input.validity.valid;
+//   });
+// };
+
 
 function setInputValidState(config, input, errorElement) { // принимаем 2 аргумента инпут и ошибку спан 
   input.classList.remove(config.inputErrorClass); // функция- выстави инпуту валидное состояние
@@ -20,10 +31,9 @@ function checkInputValidity(config, form, input) {
   }
 }
 
-disableButton(popupSubmitButton[1]);
 function toggleButtonValidity(form) {
 popupSubmitButton.forEach(function(button) {
-  disableButton(button);
+  disableButton(popupSubmitButtonAddCArd);
   if (form.checkValidity()) {  // сразу всю форму проверяем на валидность и, в зависимости от рез-та, кнопку изменяем
         enableButton(button);
       } else {
@@ -33,8 +43,8 @@ popupSubmitButton.forEach(function(button) {
 }
 
 function disableButton(button) {
-  button.setAttribute('disabled', true);
   button.classList.add('popup__submit_inactive');
+  button.setAttribute('disabled', true);
 }
 //добавляем стили при валидированном инпуте и активной кнопке
 function enableButton(button) {
@@ -44,6 +54,7 @@ function enableButton(button) {
 
 
 const setEventListeners = (config, form) => {
+
   const inputList = Array.from(form.querySelectorAll(config.inputSelector));
   inputList.forEach((input) => {
     input.addEventListener('input', function () {

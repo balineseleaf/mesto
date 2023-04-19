@@ -1,3 +1,7 @@
+//import { initialCards } from "./constants.js";
+// console.log(initialCards);
+
+
 const buttonEditProfile = document.querySelector('.profile__edit-button');
 const profileEditPopup = document.querySelector('.popup_type_edit-profile');
 const profileEditPopupCloseButton = profileEditPopup.querySelector('.popup__close');
@@ -5,9 +9,9 @@ const nameInput = profileEditPopup.querySelector('.popup__input_type_name');
 const descriptionInput = profileEditPopup.querySelector('.popup__input_type_description');
 const popupSubmitForm = document.querySelector('.popup__form');
 const popupSubmitButton = document.querySelectorAll('.popup__submit');
+const popupSubmitButtonAddCArd = document.querySelector('.popup__submitAddCard');
 const profileName = document.querySelector('.profile__name');
 const profileDescription = document.querySelector('.profile__description');
-const elementContainer = document.querySelector('.elements')
 
 const cardTemplate = document.getElementById('card');
 const cardGrid = document.querySelector('.elements');
@@ -22,7 +26,6 @@ const image = cardPopup.querySelector('.popup__image');
 const text = cardPopup.querySelector('.popup__image-text');
 const imageInputLink = cardAddForm.querySelector('.popup__input_type_photo-link');
 const imageInputDescription = cardAddForm.querySelector('.popup__input_type_photo-link-name');
-const popups = document.querySelectorAll('.popup');
 
 const initialCards = [
   {
@@ -50,7 +53,6 @@ const initialCards = [
     link: 'https://images.unsplash.com/photo-1679612423146-8c4babd5d25f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'
   }
 ];
-
 
 //edit profile popup
 buttonEditProfile.addEventListener('click', function() {
@@ -103,15 +105,18 @@ const createCardElement = function(cardData) {
   cardImage.addEventListener('click', function() {
     image.src = cardData.link;
     text.textContent = cardData.name;
+    image.alt = cardData.name;
+
     openPopup(cardPopup);
   });
 
-  cardClosePopupButton.addEventListener('click', () => {
-    closePopup(cardPopup);
-  });
+  
+  return cardElement;
+};
 
-    return cardElement;
-  };
+cardClosePopupButton.addEventListener('click', () => {
+  closePopup(cardPopup);
+});
 
 //insert an element before the closing tag section .elements
 const renderCardElement = function(cardElement) {
@@ -124,38 +129,41 @@ initialCards.forEach((card) => {
 });
 
 // functions for opening and closing popups
-
-
-const openPopup = function(popup) {
-  popup.classList.add('popup_opened');
-}
-
-const closePopup = function(popup) {
-  imageInputLink.value = '';
-  imageInputDescription.value = '';
-  popup.classList.remove('popup_opened');
-}
-
-document.addEventListener('keydown', (event) => {
-  const popup = document.querySelector('.popup_opened');
+function closeByEscape(event) {
   if (event.key === 'Escape') {
-    closePopup(popup)
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup);
   }
-});
+}
 
-const arrOfPopups = [profileEditPopup, cardAddPopup, cardPopup];
-arrOfPopups.forEach(function(popup) {
-  popup.addEventListener("click", (evt) => {
-    const popup = document.querySelector('.popup_opened');
-    if (evt.currentTarget === evt.target) {
-      closePopup(popup)
-    }
+const closeByOverlay = () => {
+  const popupList = [profileEditPopup, cardAddPopup, cardPopup];
+  popupList.forEach((popupElement) => {
+    popupElement.addEventListener('click', function (evt) {
+      if (evt.currentTarget === evt.target) {
+        closePopup(popupElement);
+      }
+    });
   });
-});
+};
+
+closeByOverlay();
+
+const openPopup = (popup) => {
+  popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closeByEscape);
+}
+
+const closePopup = (popup) => {
+  popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closeByEscape);
+}
 
 
 // open  popup by using ButtonAddCard
 cardAddButton.addEventListener('click', () => {
+  imageInputLink.value = '';
+  imageInputDescription.value = '';
   openPopup(cardAddPopup);
 });
 
@@ -174,7 +182,7 @@ const handleAddCardSubmit = (event) => {
 
   let name = imageInputDescription.value;
 
-  if (name == '') {
+  if (name === '') {
     name = 'Красивое изображение';
   }
   const link = imageInputLink.value; 
@@ -183,7 +191,7 @@ const handleAddCardSubmit = (event) => {
     link,
   }
 
-  disableButton(popupSubmitButton[1]);
+  disableButton(popupSubmitButtonAddCArd);
   renderCardElement(createCardElement(cardData));
   closeAddImagePopup();
 };
