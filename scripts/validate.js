@@ -12,40 +12,39 @@ function setInputInvalidState(config, input, errorElement) { // добавляе
 function checkInputValidity(config, form, input) {
   const errorElement = form.querySelector(`.${input.id}-error`); // span 
   if (input.checkValidity()) {
-    setInputValidState(config, input, errorElement); // передаем инпут и наш спан 
+    setInputValidState(config, input, errorElement); 
   } else {
-    setInputInvalidState(config, input, errorElement); // передаем инпут и наш спан 
+    setInputInvalidState(config, input, errorElement); 
   }
 }
 
-function toggleButtonValidity(form) {
-popupSubmitButton.forEach(function(button) {
-  disableButton(popupSubmitButtonAddCArd);
-  if (form.checkValidity()) {  // 
-        enableButton(button);
-      } else {
-        disableButton(button);
-      }
- });
-}
 
-function disableButton(button) {
-  button.classList.add('popup__submit_inactive');
+function disableButton(config, button) {
+  button.classList.add(config.inactiveButtonClass);
   button.setAttribute('disabled', true);
 }
 
-function enableButton(button) {
-  button.removeAttribute('disabled'); // убираем дизейбл с кнопки
-  button.classList.remove('popup__submit_inactive'); // снимаем прозрачность с кнопки
+function enableButton(config, button) {
+  button.removeAttribute('disabled'); 
+  button.classList.remove(config.inactiveButtonClass); 
 }
 
+function toggleButtonValidity(config, form) {
+  const submitButton = form.querySelector(config.submitButtonSelector);
+    if (form.checkValidity()) {  
+          enableButton(config, submitButton);
+        } else {
+          disableButton(config, submitButton);
+        }
+   }
 
-const setEventListeners = (config, form) => {
+
+function setEventListeners(config, form) {
   const inputList = Array.from(form.querySelectorAll(config.inputSelector));
   inputList.forEach((input) => {
     input.addEventListener('input', function () {
       checkInputValidity(config, form, input);
-      toggleButtonValidity(form);
+      toggleButtonValidity(config, form);
     });
   });
 };
@@ -69,4 +68,6 @@ enableValidation({
   inactiveButtonClass: 'popup__submit_inactive',
   inputErrorClass: 'popup__text_type_invalid',
   errorClass: 'popup__text-error'
-}); 
+});
+
+//enableValidation(c);

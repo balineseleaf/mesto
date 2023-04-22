@@ -1,10 +1,13 @@
+//import {config} from "./validate.js";
+
 const buttonEditProfile = document.querySelector('.profile__edit-button');
 const profileEditPopup = document.querySelector('.popup_type_edit-profile');
 const profileEditPopupCloseButton = profileEditPopup.querySelector('.popup__close');
 const nameInput = profileEditPopup.querySelector('.popup__input_type_name');
 const descriptionInput = profileEditPopup.querySelector('.popup__input_type_description');
 const popupSubmitForm = document.querySelector('.popup__form');
-const popupSubmitButton = document.querySelectorAll('.popup__submit');
+const popupSubmitButton = document.querySelector('.popup__submit'); //All
+const popupSubmitButtonEditProfile = document.querySelector('.popup__submitEditProfile'); //All
 const popupSubmitButtonAddCArd = document.querySelector('.popup__submitAddCard');
 const profileName = document.querySelector('.profile__name');
 const profileDescription = document.querySelector('.profile__description');
@@ -20,9 +23,16 @@ const image = cardPopup.querySelector('.popup__image');
 const text = cardPopup.querySelector('.popup__image-text');
 const imageInputLink = cardAddForm.querySelector('.popup__input_type_photo-link');
 const imageInputDescription = cardAddForm.querySelector('.popup__input_type_photo-link-name');
+const nameInputError = document.querySelector('.name-input-error');
+const descriptionInputError = document.querySelector('.description-input-error');
 
 //edit profile popup
 buttonEditProfile.addEventListener('click', function() {
+  //enableButton(config, popupSubmitButtonEditProfile);
+  nameInput.style.borderBottom = "1px solid rgba(0, 0, 0, 0.2)";
+  descriptionInput.style.borderBottom = "1px solid rgba(0, 0, 0, 0.2)";
+  nameInputError.textContent = '';
+  descriptionInputError.textContent = '';
   openPopup(profileEditPopup);
   nameInput.value = profileName.textContent;
   descriptionInput.value = profileDescription.textContent;
@@ -38,11 +48,10 @@ profileEditPopupCloseButton.addEventListener('click', function() {
   closePopup(profileEditPopup);
 });
 
-popupSubmitButton.forEach(function(button) {
-  button.addEventListener('click', function() {
-    closePopup(profileEditPopup);
-  });
+popupSubmitButton.addEventListener('click', function() {
+  closePopup(profileEditPopup);
 });
+
 
 
 // create element with <template> and js
@@ -131,7 +140,8 @@ const closePopup = (popup) => {
 cardAddButton.addEventListener('click', () => {
   imageInputLink.value = '';
   imageInputDescription.value = '';
-  disableButton(popupSubmitButtonAddCArd);
+  //disableButton(config, popupSubmitButtonAddCArd);
+
   openPopup(cardAddPopup);
 });
 
