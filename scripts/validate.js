@@ -19,12 +19,12 @@ function checkInputValidity(config, form, input) {
 }
 
 
-function disableButton(config, button) {
+export function disableButton(config, button) {
   button.classList.add(config.inactiveButtonClass);
   button.setAttribute('disabled', true);
 }
 
-function enableButton(config, button) {
+export function enableButton(config, button) {
   button.removeAttribute('disabled'); 
   button.classList.remove(config.inactiveButtonClass); 
 }
@@ -54,20 +54,19 @@ const enableValidation = (config) => {
   formList.forEach((form) => {
     form.addEventListener('submit', function (evt) {
       evt.preventDefault();
-      form.reset();
     });
 
     setEventListeners(config,form);
   });
 };
 
-enableValidation({
+ export const config = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__submit',
   inactiveButtonClass: 'popup__submit_inactive',
   inputErrorClass: 'popup__text_type_invalid',
   errorClass: 'popup__text-error'
-});
+};
 
-//enableValidation(c);
+enableValidation(config);

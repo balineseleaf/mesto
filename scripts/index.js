@@ -1,4 +1,6 @@
-//import {config} from "./validate.js";
+import {config} from "./validate.js";
+import {disableButton} from "./validate.js";
+import {enableButton} from "./validate.js";
 
 const buttonEditProfile = document.querySelector('.profile__edit-button');
 const profileEditPopup = document.querySelector('.popup_type_edit-profile');
@@ -23,19 +25,21 @@ const image = cardPopup.querySelector('.popup__image');
 const text = cardPopup.querySelector('.popup__image-text');
 const imageInputLink = cardAddForm.querySelector('.popup__input_type_photo-link');
 const imageInputDescription = cardAddForm.querySelector('.popup__input_type_photo-link-name');
-const nameInputError = document.querySelector('.name-input-error');
-const descriptionInputError = document.querySelector('.description-input-error');
+const placeNameInputError = document.querySelector('.placeName-input-error');
+const linkInputError = document.querySelector('.link-input-error');
+
 
 //edit profile popup
 buttonEditProfile.addEventListener('click', function() {
-  //enableButton(config, popupSubmitButtonEditProfile);
-  nameInput.style.borderBottom = "1px solid rgba(0, 0, 0, 0.2)";
-  descriptionInput.style.borderBottom = "1px solid rgba(0, 0, 0, 0.2)";
-  nameInputError.textContent = '';
-  descriptionInputError.textContent = '';
+  enableButton(config, popupSubmitButtonEditProfile);
+  // nameInput.style.borderBottom = "1px solid rgba(0, 0, 0, 0.2)";
+  // descriptionInput.style.borderBottom = "1px solid rgba(0, 0, 0, 0.2)";
+  // nameInputError.textContent = '';
+  // descriptionInputError.textContent = '';
   openPopup(profileEditPopup);
   nameInput.value = profileName.textContent;
   descriptionInput.value = profileDescription.textContent;
+
 });
 
 popupSubmitForm.addEventListener('submit', function(event) {
@@ -140,8 +144,9 @@ const closePopup = (popup) => {
 cardAddButton.addEventListener('click', () => {
   imageInputLink.value = '';
   imageInputDescription.value = '';
-  //disableButton(config, popupSubmitButtonAddCArd);
-
+  placeNameInputError.textContent = '';
+  linkInputError.textContent = '';
+  disableButton(config, popupSubmitButtonAddCArd);
   openPopup(cardAddPopup);
 });
 
