@@ -51,7 +51,6 @@ export default class FormValidator { //принимает  конфиг и фо�
             }
       }
    
-  
     _setEventListeners = (form) => {
       this.inputList.forEach((input) => {
         input.addEventListener('input', () => {
@@ -60,9 +59,14 @@ export default class FormValidator { //принимает  конфиг и фо�
         });
       });
     };
+  
 
-    //Единственный публичный метод enableValidation, который включает валидацию формы
+    //Публичный метод enableValidation, который включает валидацию формы
     enableValidation = () => {
       this._setEventListeners();
     };
+
+    enableSubmitButton = () => {
+      
+    }
   };

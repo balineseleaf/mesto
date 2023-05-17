@@ -9,8 +9,8 @@ const nameInput = profileEditPopup.querySelector('.popup__input_type_name');
 const descriptionInput = profileEditPopup.querySelector('.popup__input_type_description');
 const popupSubmitForm = document.querySelector('.popup__form');
 const popupSubmitButton = document.querySelector('.popup__submit'); //All
-const popupSubmitButtonEditProfile = document.querySelector('.popup__submitEditProfile'); //All
-const popupSubmitButtonAddCArd = document.querySelector('.popup__submitAddCard');
+// const popupSubmitButtonEditProfile = document.querySelector('.popup__submitEditProfile'); //All
+// const popupSubmitButtonAddCArd = document.querySelector('.popup__submitAddCard');
 const profileName = document.querySelector('.profile__name');
 const profileDescription = document.querySelector('.profile__description');
 const cardGrid = document.querySelector('.elements');
@@ -24,22 +24,19 @@ const image = cardPopup.querySelector('.popup__image');
 const text = cardPopup.querySelector('.popup__image-text');
 const imageInputLink = cardAddForm.querySelector('.popup__input_type_photo-link');
 const imageInputDescription = cardAddForm.querySelector('.popup__input_type_photo-link-name');
-const placeNameInputError = document.querySelector('.placeName-input-error');
-const linkInputError = document.querySelector('.link-input-error');
 const formEditProfile = document.querySelector('.popup__form_edit-profile');
 const formAddImage = document.querySelector('.popup__form_add-image');
 
-
-export const openBigImage = (name, link) => {
+const openBigCardByClick = (cardData) => {
+  image.src = cardData.link;
+  image.alt = cardData.name;
+  text.textContent = cardData.name;
   openPopup(cardPopup);
-  image.src  = link;
-  image.alt = name;
-  text.textContent = name;
-};
+}
 
 //создание карточки 
 const createCard = (item) => {
-  const card = new Card(item, '.card-template', '.card-template_type_default', openBigImage); //создаём экземпляр карточки
+  const card = new Card(item, '.card-template', '.card-template_type_default', openBigCardByClick); //создаём экземпляр карточки
   const cardElement = card.generateCard(); //создаём карточку и возвращаем её на страницу
   return cardElement;
 };
@@ -68,13 +65,11 @@ const handleAddCardSubmit = (event) => {
   closeAddImagePopup();
 };
 
-//edit profile popup
 buttonEditProfile.addEventListener('click', function() {
   openPopup(profileEditPopup);
   nameInput.value = profileName.textContent;
   descriptionInput.value = profileDescription.textContent;
-  popupSubmitButtonEditProfile.classList.remove('popup__submit_inactive');
-  
+  formEditProfileValidator.resetError();
 });
 
 popupSubmitForm.addEventListener('submit', function(event) {
@@ -112,13 +107,11 @@ const closeByOverlay = () => {
     });
   });
 };
-
 closeByOverlay();
 
 const openPopup = (popup) => {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', closeByEscape);
-
 }
 
 const closePopup = (popup) => {
@@ -126,14 +119,9 @@ const closePopup = (popup) => {
   document.removeEventListener('keydown', closeByEscape);
 }
 
-
-// open  popup by using ButtonAddCard
 cardAddButton.addEventListener('click', () => {
-  imageInputLink.value = '';
-  imageInputDescription.value = '';
-  placeNameInputError.textContent = '';
-  linkInputError.textContent = '';
-  popupSubmitButtonAddCArd.classList.add('popup__submit_inactive');
+  formAddImageValidator.resetError();
+  formAddImage.reset();
   openPopup(cardAddPopup);
 });
 
