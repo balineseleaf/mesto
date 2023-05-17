@@ -32,7 +32,7 @@
       </section>
 
       <section class="elements">
-        <template id="card">
+        <template id="card" class="card-template card-template_type_default">
           <div class="element">
             <button type="button" class="element__delete-card-button"></button>
             <img src="" alt="" class="element__image" role="button" />
@@ -55,7 +55,7 @@
         <form
           id="formEditProfile"
           name="form-edit-profile"
-          class="popup__form"
+          class="popup__form popup__form_edit-profile"
           novalidate
         >
           <fieldset class="popup__fieldset">
@@ -99,7 +99,7 @@
         <form
           id="formAddCard"
           name="form-edit-profile"
-          class="popup__form"
+          class="popup__form popup__form_add-image"
           novalidate
         >
           <fieldset class="popup__fieldset">
@@ -143,8 +143,7 @@
         <button type="button" class="popup__close"></button>
       </div>
     </section>
-    <script src="scripts/constants.js"></script>
     <script type="module" src="scripts/index.js"></script>
-    <script type="module" src="scripts/validate.js"></script>
+    <!-- <script type="module" src="scripts/constants.js"></script> -->
   </body>
 </html>
