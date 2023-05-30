@@ -1,7 +1,5 @@
 export default class Card { 
-    constructor (data, templateSelector, onClick) {
-      console.log(data);
-      console.log(onClick);
+    constructor ({data, handleCardClick}, templateSelector) {
       this._name = data.name;
       this._link = data.link;
       this._alt = data.name;
@@ -9,10 +7,13 @@ export default class Card {
       this.generateCard = this.generateCard.bind(this);
       this._element = this._getTemplate();
       this.elementImage = this._element.querySelector('.element__image');
-      this.onClick = onClick;
+      this.handleCardClick = handleCardClick;
     };
-  
-    _getTemplate() {//добавление новой карточки на страницу
+
+
+     //два метода для отрисовки 6 карточек из массива
+     
+    _getTemplate() {//получение новой карточки из темплейта
       const cardElement = document
       .querySelector(this._templateSelector) //найдёт template-элемент
       .content // содержимое
@@ -22,7 +23,7 @@ export default class Card {
       return cardElement; //вернёт клонированный элемент
     };
   
-    generateCard() { //метод, который вставит данные в разметку и подготовит карточку
+    generateCard() { //метод, который возьмет данные из массива initialCards и в каждую карточку закинет название и ссылку
       this._setEventListeners(); //добавили обработчики
       this._element.querySelector('.element__caption').textContent = this._name;//добавляем данные
       this.elementImage.src = this._link;
@@ -44,9 +45,9 @@ export default class Card {
         this._handleLikeCardElement();
       });
     
-      elementImage //open big image
+      elementImage //открыть большое изображение
       .addEventListener('click', () => {
-        this.onClick(this._name, this._link);
+        this.handleCardClick(this._name, this._link);
       });
     };
     
