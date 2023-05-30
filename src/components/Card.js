@@ -19,8 +19,8 @@ export default class Card {
       .content // содержимое
       .querySelector('.element') //в содержимом найдёт элемент с классом
       .cloneNode(true); //клонирует его
-     
       return cardElement; //вернёт клонированный элемент
+
     };
   
     generateCard() { //метод, который возьмет данные из массива initialCards и в каждую карточку закинет название и ссылку
@@ -28,6 +28,7 @@ export default class Card {
       this._element.querySelector('.element__caption').textContent = this._name;//добавляем данные
       this.elementImage.src = this._link;
       this.elementImage.alt = this._alt;
+
       return this._element;
     };
 

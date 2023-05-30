@@ -6,8 +6,8 @@
 // закрытия попапа. Модальное окно также закрывается при клике на затемнённую область вокруг формы.
 
 export default class Popup {
-    constructor (popupSelector) { 
-      this.popupSelector = popupSelector; //popupSelector - селектор конкретного попапа
+    constructor (popup) { 
+      this.popupSelector = popup; //popup 
       this._handleEscClose = this._handleEscClose.bind(this); //без этого не работает закрытие на esc, контекст теряется
     };
   

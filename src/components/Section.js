@@ -8,7 +8,8 @@ export default class Section {
     constructor ({ items, renderer }, containerSelector) {
       this._items = items;
       this._renderer = renderer;
-      this._containerSelector = document.querySelector('.elements');
+      this.container = containerSelector;
+
     };
   
      // cодержит публичный метод, который отвечает за отрисовку всех элементов
@@ -21,7 +22,7 @@ export default class Section {
   
     // содержит публичный метод addItem, который принимает DOM-элемент и добавляет его в контейнер
     addItem(item) { // добавление карточки и мы передаем сюда cardElement, после того как ее сделал метод createCard
-      this._containerSelector.prepend(item);
+      this.container.prepend(item);
     };
   };
   

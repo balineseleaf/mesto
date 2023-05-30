@@ -9,8 +9,8 @@ import Popup from '../components/Popup.js';
 // Перезаписывает родительский метод close, так как при закрытии попапа форма должна ещё и сбрасываться.
 
 export default class PopupWithForm extends Popup { 
-  constructor (popupSelector, handleFormSubmit) { 
-    super(popupSelector);
+  constructor (popup, handleFormSubmit) { 
+    super(popup);
     this._handleFormSubmit = handleFormSubmit; // кроме селектора попапа принимает в конструктор колбэк сабмита формы
     this._form = this.popupSelector.querySelector('.popup__form');
   };
@@ -18,7 +18,7 @@ export default class PopupWithForm extends Popup {
   _getInputValues() {
     const inputs = this._form.querySelectorAll('.popup__input'); // массив всех элементов полей
     return Array.from(inputs).reduce((formData, input) => {
-      formData[input.name] = input.value; // добавляем в этот объект значения всех полей
+      formData[input.name] = input.value;// добавляем в этот объект значения всех полей
       return formData; // возвращаем объект значений
     }, {})
   };

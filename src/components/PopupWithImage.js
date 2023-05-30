@@ -5,11 +5,10 @@ import Popup from '../components/Popup.js';
 // изображения и подписью к картинке.
 
 export default class PopupWithImage extends Popup { 
-  constructor (popupSelector) {
-    super(popupSelector);
+  constructor (popup) {
+    super(popup);
     this._text = this.popupSelector.querySelector('.popup__image-text'); // в вебинаре QA
     this._link = this.popupSelector.querySelector('.popup__image'); // аналогично 
-    console.log('в конструкторе ссылка пришла эта ', this._link)
   };
 
   openPopup(name, link) { // Дай мне эти параметры, при открытии попапа, и я их вставлю в разметку

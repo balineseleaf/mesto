@@ -1,9 +1,10 @@
 // класс UserInfo отвечает за управление отображением информации о пользователе на странице
-//Принимает в конструктор объект с селекторами двух элементов: элемента имени пользователя и элемента информации о себе.
+//Принимает в конструктор объект с селекторами двух элементов: 
+//элемента имени пользователя и элемента информации о себе.
 export default class UserInfo { 
   constructor ({profileName, profileDescription}) {
-    this._name = document.querySelector('.profile__name');
-    this._description = document.querySelector('.profile__description');
+    this._name = profileName;
+    this._description = profileDescription;
   };
 
   // cодержит публичный метод getUserInfo, который возвращает объект с данными пользователя

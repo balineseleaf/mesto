@@ -51,7 +51,7 @@ export default class FormValidator { //принимает  конфиг и фо�
             }
       }
    
-    _setEventListeners = (form) => {
+    _setEventListeners = () => {
       this.inputList.forEach((input) => {
         input.addEventListener('input', () => {
           this._checkInputValidity(input);
@@ -65,8 +65,4 @@ export default class FormValidator { //принимает  конфиг и фо�
     enableValidation = () => {
       this._setEventListeners();
     };
-
-    enableSubmitButton = () => {
-      
-    }
   };
