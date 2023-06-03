@@ -7,17 +7,17 @@
 
 export default class Popup {
     constructor (popup) { 
-      this.popupSelector = popup; //popup 
+      this.popup = popup; //popup 
       this._handleEscClose = this._handleEscClose.bind(this); //без этого не работает закрытие на esc, контекст теряется
     };
   
     openPopup() {
-      this.popupSelector.classList.add('popup_opened'); 
+      this.popup.classList.add('popup_opened'); 
       document.addEventListener('keydown', this._handleEscClose);
     };
   
     closePopup() {
-      this.popupSelector.classList.remove('popup_opened'); 
+      this.popup.classList.remove('popup_opened'); 
       document.removeEventListener('keydown', this._handleEscClose);
     };
    
@@ -28,9 +28,8 @@ export default class Popup {
     };
     
     setEventListeners() {
-
       // закрытие на overlay
-      this.popupSelector.addEventListener('mousedown', (evt) => {
+      this.popup.addEventListener('mousedown', (evt) => {
         if(evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close')) {
           this.closePopup();
         };

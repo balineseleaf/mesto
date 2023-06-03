@@ -17,15 +17,14 @@ export default class UserInfo {
     return {
       name: this._name.textContent,
       description: this._description.textContent
-    }
+    }// вернет нам объект к 2 полями, мы получим данные с экрана и перерадим 
+    // в index.js  для константы userData и дальше будет ее уже использовать
   };
 
   // cодержит публичный метод setUserInfo, который принимает новые данные пользователя и добавляет их на страницу
   // setUserInfo должен принять объект данных и проставить из него значения в элементы профиля
-  setUserInfo (userData) {  // разбирали 
+  setUserInfo (userData) {// разбирали 
     this._name.textContent = userData.name;
     this._description.textContent = userData.description;
- 
   };
-
 };

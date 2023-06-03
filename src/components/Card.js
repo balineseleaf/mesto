@@ -9,8 +9,6 @@ export default class Card {
       this.elementImage = this._element.querySelector('.element__image');
       this.handleCardClick = handleCardClick;
     };
-
-
      //два метода для отрисовки 6 карточек из массива
      
     _getTemplate() {//получение новой карточки из темплейта
@@ -20,7 +18,6 @@ export default class Card {
       .querySelector('.element') //в содержимом найдёт элемент с классом
       .cloneNode(true); //клонирует его
       return cardElement; //вернёт клонированный элемент
-
     };
   
     generateCard() { //метод, который возьмет данные из массива initialCards и в каждую карточку закинет название и ссылку
@@ -28,33 +25,26 @@ export default class Card {
       this._element.querySelector('.element__caption').textContent = this._name;//добавляем данные
       this.elementImage.src = this._link;
       this.elementImage.alt = this._alt;
-
       return this._element;
     };
 
     _setEventListeners = () => {
       const elementImage = this._element.querySelector('.element__image');
-      this._element
-      .querySelector('.element__delete-card-button')
-      .addEventListener('click', () => {
+      this._element.querySelector('.element__delete-card-button').addEventListener('click', () => {
         this._deleteCardElement();
       });
     
-      this._element
-      .querySelector('.element__icon-like')
-      .addEventListener('click', () => {
+      this._element.querySelector('.element__icon-like').addEventListener('click', () => {
         this._handleLikeCardElement();
       });
     
-      elementImage //открыть большое изображение
-      .addEventListener('click', () => {
+      elementImage.addEventListener('click', () => {
         this.handleCardClick(this._name, this._link);
       });
     };
     
       _handleLikeCardElement() {
-        this._element
-        .querySelector('.element__icon-like')
+        this._element.querySelector('.element__icon-like')
         .classList.toggle('element__icon-like_active');
       };
     

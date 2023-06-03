@@ -26,7 +26,12 @@ export const formAddImage = document.querySelector('.popup__form_add-image');
 export const elements = document.querySelector('.elements');
 
 
-const section = new Section({items: initialCards, renderer: renderCard }, elements);
+const section = new Section(
+  {
+    items: initialCards, 
+    renderer: renderCard 
+  }
+  , elements);
 
 // для каждого попапа с формами  создаем свой экземпляр класса PopupWithForm
 // создаем два экземпляра класса PopupWithForm, в каждый передаем свой коллбек (помимо селектора попапа)
@@ -62,7 +67,7 @@ const createCard = (data) => {
 // функция не должна ничего возвращать, а просто создает карточку и добавляет в список
 function renderCard(cardData) {
   const cardElement = createCard(cardData); // div DOM
-  section.addItem(cardElement);
+  section.addItem(cardElement);// 6 карточек из нашего массива
 };
 
 // Функции добавления информации пользователя и добавления карточки в профиль
@@ -73,7 +78,7 @@ function addProfileInfo(userData) {
 
 function addCardOnPage(data) {
   section.addItem(createCard(data));
-  popupForAddCard.closePopup();
+  popupForAddCard.closePopup();// добавление новой карточки через форму
 };
 
 // Функция клика по изображению
