@@ -4,7 +4,11 @@
   object-fit: cover;
   align-self: center;
   height: 120px;
+  transition: opacity .3s ease;
+  background-image: url(../../../images/editavatar.svg);
+  background-position: center;
 }
+
 
 @media screen and (max-width: 1100px) {
   .profile__image {

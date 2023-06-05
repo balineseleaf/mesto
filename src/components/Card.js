@@ -1,5 +1,5 @@
 export default class Card { 
-    constructor ({data, handleCardClick}, templateSelector) {
+    constructor ({data, handleCardClick, openPopupForConfirm}, templateSelector) {
       this._name = data.name;
       this._link = data.link;
       this._alt = data.name;
@@ -8,6 +8,7 @@ export default class Card {
       this._element = this._getTemplate();
       this.elementImage = this._element.querySelector('.element__image');
       this.handleCardClick = handleCardClick;
+      this.openPopupForConfirm = openPopupForConfirm;
     };
      //два метода для отрисовки 6 карточек из массива
      
@@ -30,8 +31,10 @@ export default class Card {
 
     _setEventListeners = () => {
       const elementImage = this._element.querySelector('.element__image');
-      this._element.querySelector('.element__delete-card-button').addEventListener('click', () => {
-        this._deleteCardElement();
+      this._element.querySelector('.element__delete-card-button')
+      .addEventListener('click', () => {
+        this.openPopupForConfirm();
+        //this._deleteCardElement();
       });
     
       this._element.querySelector('.element__icon-like').addEventListener('click', () => {
@@ -48,7 +51,7 @@ export default class Card {
         .classList.toggle('element__icon-like_active');
       };
     
-      _deleteCardElement = () => {
+      deleteCardElement = () => {
         this._element.remove();
       };
     };

@@ -43,6 +43,7 @@
 @import url(../blocks/popup/__text/_type/popup__text_type_invalid.css);
 @import url(../blocks/popup/__text/popup__text-error.css);
 @import url(../blocks/popup/__text/popup__text.css);
-
+@import url(../blocks/profile/__edit-icon/__edit-icon.css);
+@import url(../blocks/profile/__info-container/profile__info-container.css);
 
 
