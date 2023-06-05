@@ -11,10 +11,6 @@
   },
   "author": "Mikhail Zinchik",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/balineseleaf/mesto/issues"
-  },
-  "homepage": "https://github.com/balineseleaf/mesto#readme",
   "devDependencies": {
     "@babel/core": "^7.22.1",
     "@babel/preset-env": "^7.22.2",

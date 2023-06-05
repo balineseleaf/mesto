@@ -100,7 +100,7 @@ function editProfileAvatar() {
 
 function deleteAfterConfirm() {
   //console.log('1', cardElement);
-  deleteCardElement();
+  //deleteCardElement();
   popupForDeleteCard.closePopup()
 }
 
