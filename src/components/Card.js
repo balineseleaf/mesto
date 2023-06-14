@@ -1,5 +1,7 @@
 export default class Card { 
-    constructor ({data, handleCardClick, openPopupForConfirm}, templateSelector) {
+    constructor ({data, handleCardClick, openPopupForConfirm}, templateSelector, api, userId) {
+      
+      //console.log(data);// массив карточек с сервера
       this._name = data.name;
       this._link = data.link;
       this._alt = data.name;
@@ -9,16 +11,19 @@ export default class Card {
       this.elementImage = this._element.querySelector('.element__image');
       this.handleCardClick = handleCardClick;
       this.openPopupForConfirm = openPopupForConfirm;
+      this._id = data.id;
+      this._api = api;
+      this._userId = userId;
     };
+
      //два метода для отрисовки 6 карточек из массива
-     
     _getTemplate() {//получение новой карточки из темплейта
       const cardElement = document
       .querySelector(this._templateSelector) //найдёт template-элемент
       .content // содержимое
       .querySelector('.element') //в содержимом найдёт элемент с классом
       .cloneNode(true); //клонирует его
-      return cardElement; //вернёт клонированный элемент
+      return cardElement; //вернёт элемент <div> полностью без содержимого
     };
   
     generateCard() { //метод, который возьмет данные из массива initialCards и в каждую карточку закинет название и ссылку
@@ -26,7 +31,7 @@ export default class Card {
       this._element.querySelector('.element__caption').textContent = this._name;//добавляем данные
       this.elementImage.src = this._link;
       this.elementImage.alt = this._alt;
-      return this._element;
+      return this._element; //вернёт элемент <div> полностью c содержимым
     };
 
     _setEventListeners = () => {
@@ -53,6 +58,7 @@ export default class Card {
     
       deleteCardElement = () => {
         this._element.remove();
+        this._element = null;
       };
     };
   

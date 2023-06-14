@@ -7,8 +7,8 @@ export default class Section {
     // второй параметр конструктора — селектор контейнера, в который нужно добавлять созданные элементы
     constructor ({ items, renderer }, containerSelector) {
       this._items = items; // массив initialCards
-      this._renderer = renderer; //ƒ renderCard(cardData) 
-      this.container = containerSelector;// section class = "elements"
+      this._renderer = renderer; //  ƒ renderCard(cardData) 
+      this.container = containerSelector;// section class = "elements" - куда добавляем эл-ты
 
     };
   
@@ -26,7 +26,7 @@ export default class Section {
   
     // содержит публичный метод addItem, который принимает DOM-элемент и добавляет его в контейнер
     addItem(item) { // добавление карточки и мы передаем сюда cardElement, после того как ее сделал метод createCard
-      this.container.prepend(item);
+      this.container.prepend(item); //<div>
     };
   };
   

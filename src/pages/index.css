@@ -22,6 +22,8 @@
 @import url(../blocks/element/__icon-like/element__icon-like.css);
 @import url(../blocks/element/__icon-like/_active/element__icon-like_active.css);
 @import url(../blocks/element/element.css);
+@import url(../blocks/element/__icon-like-counter/element__icon-like-counter.css);
+@import url(../blocks/element/__like-section/element__like-section.css);
 
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);

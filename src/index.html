@@ -24,10 +24,10 @@
           </div>
           <div class="profile__bio">
             <div class="profile__block-info">
-              <h1 class="profile__name">Жак-Ив Кусто</h1>
+              <h1 class="profile__name"></h1>
               <button type="button" class="profile__edit-button"></button>
             </div>
-            <p class="profile__description">Исследователь океана</p>
+            <p class="profile__description"></p>
           </div>
         </div>
         <button type="button" class="profile__add-button"></button>
@@ -40,7 +40,10 @@
             <img alt="" class="element__image" role="button" />
             <div class="element__caption-block">
               <h2 class="element__caption">Опасный зверь</h2>
-              <button type="button" class="element__icon-like"></button>
+              <div class="element__like-section">
+                <button type="button" class="element__icon-like"></button>
+                <p class="element__icon-like-counter">5</p>
+              </div>
             </div>
           </div>
         </template>
@@ -75,7 +78,7 @@
             <input
               id="description-input"
               class="popup__input popup__input_type_description"
-              name="description"
+              name="about"
               placeholder="Введите вашу профессию"
               required
               minlength="2"
