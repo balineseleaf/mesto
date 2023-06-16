@@ -37,7 +37,7 @@ export default class Card {
       this.elementImage.alt = this._alt;
       this._likeButton = this._element.querySelector('.element__icon-like');
       this._likesCounter = this._element.querySelector('.element__icon-like-counter');// наш счетчик лайков
-      this._likesCounter.textContent = this._likeslength; // цифра лайков
+      this.updateLikes(this.likes) // цифра лайков
       this._deleteButton = this._element.querySelector('.element__delete-card-button');
       this._element.userID = this.userID;
       this._confirmationDeleteButton();
