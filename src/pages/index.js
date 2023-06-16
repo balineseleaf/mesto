@@ -114,7 +114,7 @@ const popupForEditAvatar = new PopupWithForm(avatarEditPopup, editProfileAvatar)
 popupForEditAvatar.setEventListeners();
 
 function editProfileAvatar(avatar) {
-  api.getNewAvatar(avatar).then((data) => 
+  api.setNewAvatar(avatar).then((data) => 
   userInfo.setUserAvatar(data.avatar))
   .catch((err) => console.log(`catch: ${err}`)); 
   //popupForEditAvatar.closePopup();
@@ -134,7 +134,7 @@ formEditAvatarValidator.enableValidation();
 
 //Функции добавления информации пользователя и добавления карточки в профиль
 function addProfileInfo(data) {
-  api.getUpdateUserData(data).then((userData) => {
+  api.setUpdateUserData(data).then((userData) => {
     userInfo.setUserInfo(userData); // userInfo - объект с 3 полями.. name, about, avatar
     popupEditProfile.closePopup();
   });
@@ -154,10 +154,10 @@ function handleCardClick(name, link) {
 
 //слушатели для открытия попапов на кнопки изменений
 buttonEditProfile.addEventListener('click', () => {
-  popupEditProfile.openPopup();
   const userData = userInfo.getUserInfo();
   popupEditProfile.setInputValues(userData); // и дальше нужно будет передать эти данные в форму
   formEditProfileValidator.resetError(); //чистим форму от ошибок + кнопка
+  popupEditProfile.openPopup();
 });
 
 cardAddButton.addEventListener('click', () => {

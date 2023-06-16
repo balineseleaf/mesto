@@ -26,7 +26,7 @@ export default class Api {
     .then(this._handleResponse)
   }
 
-  getUpdateUserData(userData) {
+  setUpdateUserData(userData) {
     console.log('1', userData);
       return fetch(`${this._url}/users/me`, { 
         method: 'PATCH',
@@ -43,7 +43,7 @@ export default class Api {
     .then(this._handleResponse)
   }
 
-  getNewAvatar(avatar) { //link: ссылка на аватар 
+  setNewAvatar(avatar) { //link: ссылка на аватар 
     return fetch(`${this._url}/users/me/avatar`, { 
         method: 'PATCH',
         headers: {
