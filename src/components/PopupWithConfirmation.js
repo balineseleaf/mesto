@@ -1,13 +1,12 @@
-import PopupWithForm from "./PopupWithForm.js";
+import PopupWithForm from "../components/PopupWithForm";
 
 export default class PopupWithConfirmation extends PopupWithForm {
+    constructor(popupSelector) {
+        super(popupSelector);
+    }
 
-   setEventListeners() {
-    super.setEventListeners();
-    const confirmButton = document.querySelector('.popup__submitDeleteCard');
-    confirmButton.addEventListener('submit', () => {
-      evt.preventDefault();
-      this.deleteAfterConfirm();
-    });
-   };
-};
+    openPopup(onSubmit) {
+        super.openPopup();
+        this._handleFormSubmit = onSubmit;
+    }
+}

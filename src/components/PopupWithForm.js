@@ -13,6 +13,7 @@ export default class PopupWithForm extends Popup {
     super(popup);
     this._handleFormSubmit = handleFormSubmit; // кроме селектора попапа принимает в конструктор колбэк сабмита формы
     this._form = this.popup.querySelector('.popup__form');
+    this._submitButton = this._form.querySelector('.popup__submit');
   };
 
   _getInputValues() {
@@ -30,17 +31,29 @@ export default class PopupWithForm extends Popup {
       })
     };
 
-  // родительский метод close + очитска формы
-  closePopup() {
-    super.closePopup();
-    this._form.reset();
-  }
+    
+    // родительский метод close + очистка формы
+    closePopup() {
+      super.closePopup();
+      this._form.reset();
+    }
+    
+    setEventListeners() {
+      super.setEventListeners();
+      this._form.addEventListener('submit', (evt) => {
+        this.handlePopupSubmit(evt)
+      });
+    };
 
-  setEventListeners() {
-    super.setEventListeners();
-    this._form.addEventListener('submit', (evt) => {
+    async handlePopupSubmit(evt) {
       evt.preventDefault();
-      this._handleFormSubmit(this._getInputValues());
-    });
+      const originalText = this._submitButton.textContent;
+      try {
+        this._submitButton.textContent = 'Сохранение...';
+        await this._handleFormSubmit(this._getInputValues());
+        this.closePopup();
+      } finally {
+        this._submitButton.textContent = originalText;
+      }
+    }
   };
-};

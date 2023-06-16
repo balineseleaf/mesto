@@ -5,7 +5,6 @@ export default class UserInfo {
   constructor ({profileName, profileDescription, profileAvatar}) {
     this._name = profileName;
     this._about = profileDescription;
-    //this._avatar = profileAvatar;
     this._profileAvatar = profileAvatar;
   };
 
@@ -28,6 +27,7 @@ export default class UserInfo {
     setUserInfo (userData) {// разбирали 
       this._name.textContent = userData.name;
       this._about.textContent = userData.about;
+      this._profileAvatar.src = userData.avatar;
     };
 
     setUserAvatar (avatar) { // ссылка на аватар приходит
